@@ -2,7 +2,8 @@ package modele;
 
 abstract class Personnage extends Entity{
 
-    private int angle;
+    private float[] direction;
+    private int speed;
 
     public Personnage(String sprite)
     {
