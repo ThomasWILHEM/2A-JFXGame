@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vues.FenetreDeJeu">
    <center>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane BorderPane.alignment="CENTER" fx:id="Grille">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -53,7 +53,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Canvas height="200.0" width="200.0" fx:id="image"/>
+            <Canvas height="600.0" width="800.0" fx:id="image"/>
          </children>
       </GridPane>
    </center>

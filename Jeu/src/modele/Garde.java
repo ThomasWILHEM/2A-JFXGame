@@ -1,10 +1,9 @@
 package modele;
 
 public class Garde extends Personnage{
-        private ChampVision champVision;
-
-        public Garde(String sprite,int dist,int angle) {
-            super(sprite);
-            champVision = new ChampVision(dist,angle);
-        }
+    private int distanceVue;
+    public Garde(String sprite,int dist) {
+        super(sprite);
+        this.distanceVue=dist;
+    }
 }

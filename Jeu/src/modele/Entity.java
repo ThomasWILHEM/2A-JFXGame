@@ -4,12 +4,16 @@ import javafx.scene.image.Image;
 
 abstract class Entity {
     private Image sprite;
-
-    public Entity(String image){
+    boolean isSolid;
+    public Entity(String image,boolean s){
         sprite = new Image(image);
+        this.isSolid = s;
     }
 
     public Image getSprite() {
         return sprite;
+    }
+    public boolean isSolid() {
+        return isSolid;
     }
 }

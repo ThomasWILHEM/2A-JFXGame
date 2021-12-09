@@ -2982,9 +2982,9 @@
 										"$ref": "AAAAAAF9njduPu342Ho="
 									},
 									"font": "Arial;13;0",
-									"left": 1113,
+									"left": 1112,
 									"top": 380,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5616666512578257,
 									"distance": 34.132096331752024,
@@ -5201,8 +5201,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 1335.57080078125,
-							"top": 680,
+							"left": 1336,
+							"top": 712,
 							"width": 100,
 							"height": 50,
 							"text": "isSolid = 0"
@@ -5220,7 +5220,7 @@
 							"tail": {
 								"$ref": "AAAAAAF9ekuZ+8QsaKE="
 							},
-							"points": "1266:750;1385:750;1385:729"
+							"points": "1266:736;1336:736"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -5920,7 +5920,8 @@
 										"_parent": {
 											"$ref": "AAAAAAF9njduPu33A90="
 										},
-										"name": "Entité"
+										"name": "Entité",
+										"type": ""
 									}
 								]
 							},

@@ -1,0 +1,16 @@
+private StringProperty toto = new SimpleStringProperty("bonjour");
+        ObjectProperty
+
+public String getToto(){ return toto.get(); }//Nom Propriété très important
+public void setToto(String value){ return toto.set(value); }
+public StringProperty totoProperty(){ return toto; }
+        ReadOnlyStringProperty //pour lecture seule
+//TOUT ÇA EQUIVAUT A UNE PROPRIÉTÉ EN C#
+//IL FAUT LES REGROUPER EN BLOC POUR BIEN LES VOIR
+
+//BIND CODE BEHIND
+element.propriete().bind(element2.propriete());
+                 .bindBidirectionnal(element2.propriete()); // 2-way impossible en FXML
+//Observateur                        SUJET
+//FXML
+<Button text="${element.prop}"/>
