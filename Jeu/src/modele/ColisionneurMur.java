@@ -8,8 +8,10 @@ public class ColisionneurMur implements Colisionneur{
             if(!(((Entity)(c.whatIsAt(p))).isSolid()))
             {
                 return true;
+            }else{
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }

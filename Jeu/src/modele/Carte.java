@@ -9,6 +9,8 @@ public class Carte {
     private int largeurP;
     private HashMap<Entity, Position> elements;
 
+    public HashMap<Entity, Position> getElements() {return elements;}
+
     public Carte(int lp, int larP) {
         this.largeurP = larP;
         this.longueurP = lp;
@@ -28,4 +30,6 @@ public class Carte {
         }
         return null;
     }
+
+
 }

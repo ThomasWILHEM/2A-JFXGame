@@ -27,7 +27,7 @@ public class FenetreDeJeu {
 
     public void initialize(){
         GraphicsContext gc = image.getGraphicsContext2D();
-        gc.drawImage(new Image("/Images/voleur.jpg"),0,0);
+        gc.drawImage(new Image("/Images/voleurUnique.png"),0,0);
         //image.heightProperty().bind(Grille.heightProperty());
         //image.widthProperty().bind(Grille.widthProperty());
     }
