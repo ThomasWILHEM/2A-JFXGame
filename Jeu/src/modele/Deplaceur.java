@@ -36,5 +36,4 @@ public class Deplaceur {
         }
         return false;
     }
-
 }
