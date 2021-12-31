@@ -1,0 +1,8 @@
+Dans le fichier map1.txt, on retrouve la première carte qui va être chargée dans un tableau
+
+Légende :
+    0 : vide (ou sol);
+    1 : mur
+    2 : entrée
+    3 : sortie
+    4 : gardes (qui tournent sur eux même)
