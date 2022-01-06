@@ -50,16 +50,13 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Text fx:id="labelTemps" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;" text="Time : 01:30" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Text fx:id="labelTemps" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;" text="" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="30.0" />
                      </GridPane.margin>
                      <font>
                         <Font size="20.0" />
                      </font>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
                   </Text>
                </children>
             </GridPane>

@@ -3,6 +3,8 @@ package modele;
 import java.io.*;
 
 public class LecteurDeCarte {
+    private int longueur =0;
+    private int hauteur =0;
 
     public char [][] lireCarte(String chemin) throws FileNotFoundException {
         char[][] carte = new char[11][34];
@@ -14,12 +16,23 @@ public class LecteurDeCarte {
                     carte[i][j] = num;
                     j++;
                 }
+                longueur = j;
                 j=0;
                 i++;
             }
+            hauteur = i;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return carte;
     }
+
+    public int getLongueur() {
+        return longueur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
+    }
+
 }

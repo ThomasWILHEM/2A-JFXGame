@@ -7,6 +7,7 @@ import java.util.Set;
 public class Carte {
     private int longueurP;
     private int largeurP;
+
     private HashMap<Entity, Position> elements;
 
     public HashMap<Entity, Position> getElements() {return elements;}
@@ -31,5 +32,25 @@ public class Carte {
         return null;
     }
 
-
+    public void lireCarte(String chemin){
+        int i,j;
+        LecteurDeCarte l = new LecteurDeCarte();
+        try {
+            char[][] cLue = l.lireCarte(chemin);
+            for(i=0;i<l.getHauteur();i++){
+                for(j=0;j<l.getLongueur();j++){
+                    switch(cLue[i][j]){
+                        case 1 : elements.put(new Mur("/Images/mur.jpeg"),new Position(j,i));
+                        case 2 : elements.put(new PersoJoueur("/Images/voleurUnique.png"),new Position(j,i));
+                        case 3 : elements.put(new Mur("/Images/mur.jpeg"),new Position(j,i));
+                        case 4 : elements.put(new Garde("/Images/voleur.jpg",0),new Position(j,i));
+                        default : elements.put(new Objet("/Images/floor_01_1.png"),new Position(j,i));
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println("Lecture de carte impossible");
+        }
+    }
 }

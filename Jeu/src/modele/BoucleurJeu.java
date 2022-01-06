@@ -8,27 +8,17 @@ import javafx.collections.ObservableList;
 
 public class BoucleurJeu extends Boucleur {
 
-    public gestTemps g;
-    public BoucleurJeu(gestTemps ge)
-    {
-        g = ge;
+    public BoucleurJeu(){
     }
     @Override
     public void run() {
-        try {
-            g.setTimer(g.getTimer()-1);
-            Thread.sleep(1000);
-        }
-        catch(Exception e) {
+        while(true) {
+            try {
+                Thread.sleep(16);
+            } catch (Exception e) {
 
-        }
-        Platform.runLater(()->{notifie();});
-    }
-    public void notifie() {
-        for(Observateur o:obs)
-        {
-            o.update();
+            }
+            notifie();
         }
     }
-
 }
