@@ -2,7 +2,7 @@ package modele;
 
 import javafx.scene.image.Image;
 
-abstract class Entity {
+public abstract class Entity {
     private Image sprite;
     boolean isSolid;
     public Entity(String image,boolean s){

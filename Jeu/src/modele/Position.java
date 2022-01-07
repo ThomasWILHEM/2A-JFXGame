@@ -1,35 +1,31 @@
 package modele;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class Position {
-    private int posX;
-    private int posY;
+
+    private IntegerProperty posX =  new SimpleIntegerProperty();
+    public int getPosX() {return posX.getValue();}
+    public void setPosX(int value) { posX.setValue(value);}
+    public IntegerProperty posXProperty() { return posX;}
+
+    private IntegerProperty posY =  new SimpleIntegerProperty();
+    public int getPosY() {return posX.getValue();}
+    public void setPosY(int value) { posY.setValue(value);}
+    public IntegerProperty posYProperty() { return posY;}
 
     public Position(int pX,int pY){
-        this.posX = pX;
-        this.posY = pY;
+        setPosX(pX);
+        setPosY(pY);
     }
 
-    public int getPosX() {
-        return posX;
-    }
-
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
 
     @Override
     public boolean equals(Object o)
     {
         if (o.getClass() == Position.class) {
-            if (posX == ((Position)o).getPosX() && posY == ((Position)o).getPosY()) {
+            if (getPosX() == ((Position)o).getPosX() && getPosY() == ((Position)o).getPosY()) {
                 return true;
             }
         }

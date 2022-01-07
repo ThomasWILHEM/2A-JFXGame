@@ -3,6 +3,7 @@ package modele;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.jar.JarOutputStream;
 
 public class Carte {
     private int longueurP;
@@ -12,9 +13,7 @@ public class Carte {
 
     public HashMap<Entity, Position> getElements() {return elements;}
 
-    public Carte(int lp, int larP) {
-        this.largeurP = larP;
-        this.longueurP = lp;
+    public Carte() {
         elements = new HashMap<Entity, Position>();
     }
 
@@ -32,25 +31,30 @@ public class Carte {
         return null;
     }
 
-    public void lireCarte(String chemin){
+
+    public Entity lireCarte(String chemin){
         int i,j;
+        Entity joueur = new PersoJoueur("/Images/voleurUnique.png");
         LecteurDeCarte l = new LecteurDeCarte();
         try {
             char[][] cLue = l.lireCarte(chemin);
             for(i=0;i<l.getHauteur();i++){
                 for(j=0;j<l.getLongueur();j++){
                     switch(cLue[i][j]){
-                        case 1 : elements.put(new Mur("/Images/mur.jpeg"),new Position(j,i));
-                        case 2 : elements.put(new PersoJoueur("/Images/voleurUnique.png"),new Position(j,i));
-                        case 3 : elements.put(new Mur("/Images/mur.jpeg"),new Position(j,i));
-                        case 4 : elements.put(new Garde("/Images/voleur.jpg",0),new Position(j,i));
-                        default : elements.put(new Objet("/Images/floor_01_1.png"),new Position(j,i));
+                        case '1' : elements.put(new Mur("/Images/mur.png"),new Position(j,i));break;
+                        case '2' : elements.put(joueur,new Position(j,i));break;
+                        case '3' : elements.put(new Mur("/Images/floor_01_1.png"),new Position(j,i));break;
+                        case '4' : elements.put(new Garde("/Images/garde.png",0),new Position(j,i));break;
                     }
                 }
+                longueurP = j;
             }
+            largeurP = i;
+
         }
         catch(Exception e){
             System.out.println("Lecture de carte impossible");
         }
+        return joueur;
     }
 }
