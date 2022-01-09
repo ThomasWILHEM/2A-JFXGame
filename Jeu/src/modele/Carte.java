@@ -1,13 +1,13 @@
 package modele;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.jar.JarOutputStream;
 
 public class Carte {
     private int longueurP;
     private int largeurP;
+
+
 
     private HashMap<Entity, Position> elements;
 
@@ -16,21 +16,28 @@ public class Carte {
     public Carte() {
         elements = new HashMap<Entity, Position>();
     }
-
     //Mise a jour en whatIsAt, car sinon je peux pas vérifier la transparence de l'entité
-    Entity whatIsAt(Position pVoulue) {
+    List<Entity> whatIsAt(Position pVoulue) {
+        List<Entity> l = new ArrayList<>();
         if(elements.containsValue(pVoulue)){
             Set<Map.Entry<Entity,Position>> recherche = elements.entrySet();
             for(Map.Entry<Entity,Position> ent:recherche){
-                if(ent.getValue() == pVoulue)
+                if(ent.getValue().equals(pVoulue))
                 {
-                    return ent.getKey();
+                    l.add(ent.getKey());
                 }
             }
         }
-        return null;
+        return l;
     }
 
+    public Position getPosJoueur(PersoJoueur j){
+        return elements.get(j);
+    }
+
+    public void destroy(Objet o){
+        elements.remove(o);
+    }
 
     public Entity lireCarte(String chemin){
         int i,j;
@@ -45,6 +52,7 @@ public class Carte {
                         case '2' : elements.put(joueur,new Position(j,i));break;
                         case '3' : elements.put(new Mur("/Images/floor_01_1.png"),new Position(j,i));break;
                         case '4' : elements.put(new Garde("/Images/garde.png",0),new Position(j,i));break;
+                        case '5' : elements.put(new Objet("/Images/gems.png"),new Position(j,i));break;
                     }
                 }
                 longueurP = j;
@@ -54,6 +62,7 @@ public class Carte {
         }
         catch(Exception e){
             System.out.println("Lecture de carte impossible");
+            System.out.println(e.getCause());
         }
         return joueur;
     }

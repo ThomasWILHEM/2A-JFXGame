@@ -1,11 +1,8 @@
 package vues;
 
-import javafx.beans.property.*;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -28,6 +25,9 @@ public class FenetreDeJeu {
     @FXML
     public Text labelTemps;
 
+    @FXML
+    public Label labelScore;
+
     public BoucleurJeu b;
     public Timer g;
     public MovementManager movementManager;
@@ -48,6 +48,8 @@ public class FenetreDeJeu {
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
         g = new Timer(90,b);
+
+        Score s = new Score();
         movementManager = new MovementManager();
         showMap(movementManager.getCarte());
 
@@ -55,12 +57,19 @@ public class FenetreDeJeu {
         map.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                movementManager.gestionTouches(keyEvent);
+                switch(movementManager.gestionTouches(keyEvent)) {
+                    case 2:
+                        s.addScore(1);
+                        break;
+                    default:
+                        break;
+                }
                 showMap(movementManager.getCarte());
             }
         });
         tBoucleur.start();
         labelTemps.textProperty().bind(g.tempsProperty().asString());
+        labelScore.textProperty().bind(s.CounterProperty().asString());
     }
 
 }

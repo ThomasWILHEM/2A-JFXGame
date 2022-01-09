@@ -9,7 +9,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Parent st = FXMLLoader.load(getClass().getResource("/FXML/FenetreDeJeu.fxml"));
-        primaryStage.setScene(new Scene(st));
+        primaryStage.setScene(new Scene(st,1080,720));
         primaryStage.show();
     }
 }

@@ -43,7 +43,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;" text="Score : 02" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Label fx:id="labelScore" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;" text=""  GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>

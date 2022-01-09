@@ -11,7 +11,7 @@ public class Position {
     public IntegerProperty posXProperty() { return posX;}
 
     private IntegerProperty posY =  new SimpleIntegerProperty();
-    public int getPosY() {return posX.getValue();}
+    public int getPosY() {return posY.getValue();}
     public void setPosY(int value) { posY.setValue(value);}
     public IntegerProperty posYProperty() { return posY;}
 

@@ -6,3 +6,4 @@ Légende :
     2 : entrée
     3 : sortie
     4 : gardes (qui tournent sur eux même)
+    5 : Objet

@@ -6,6 +6,6 @@ abstract class Personnage extends Entity{
 
     public Personnage(String sprite)
     {
-        super(sprite,true);
+        super(sprite,false);
     }
 }

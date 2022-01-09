@@ -25,7 +25,10 @@ public class Timer implements Observateur {
         cptAct++;
         if(cptAct==60)
         {
-            Platform.runLater(()->{setTempsP(getTempsP()-1);});
+            Platform.runLater(()->{
+                if(getTempsP()!=0)
+                    setTempsP(getTempsP()-1);
+            });
             cptAct=0;
         }
     }

@@ -13,9 +13,11 @@ public class Deplaceur {
 
     private ColisionneurMur cm;
     private ColisionneurGarde cg;
+    private ColisionneurObjet co;
     public Deplaceur(){
         cm = new ColisionneurMur();
         cg = new ColisionneurGarde();
+        co = new ColisionneurObjet();
     }
 
     private Position findInMap(Carte c,Entity e){
@@ -31,30 +33,36 @@ public class Deplaceur {
         return null;
     }
 
-    public void traitementMouvement(Carte c, Entity e,KeyEvent k){
+    public int traitementMouvement(Carte c, Entity e,KeyEvent k){
         Position p = findInMap(c,e);
+        int code;
         switch(k.getCode()){
-            case UP : p.setPosY(p.getPosY()-1);deplacer(c,e,p);break;
-            case DOWN: p.setPosY(p.getPosY()+1);deplacer(c,e,p);break;
-            case LEFT: p.setPosX(p.getPosX()-1);deplacer(c,e,p);break;
-            case RIGHT: p.setPosX(p.getPosX()+1);deplacer(c,e,p);break;
-            default: break;
+            case UP : code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()-1));break;
+            case DOWN: code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()+1));break;
+            case LEFT: code=deplacer(c,e,new Position(p.getPosX()-1,p.getPosY()));break;
+            case RIGHT: code=deplacer(c,e,new Position(p.getPosX()+1,p.getPosY()));break;
+            default: code=-1;break;
         }
+        return code;
     }
 
-    public boolean deplacer(Carte c, Entity e, Position pVoulue){
+    public int deplacer(Carte c, Entity e, Position pVoulue){
         Position p;
         if(cm.isOkayToMove(c,pVoulue) && cg.isOkayToMove(c,pVoulue)){
-                        p = findInMap(c,e);
-                        p.setPosX(pVoulue.getPosX());
-                        p.setPosY(pVoulue.getPosY());
-                        return true;
-        }else if(!cg.isOkayToMove(c,pVoulue)){  // Si !mur.garde
             p = findInMap(c,e);
             p.setPosX(pVoulue.getPosX());
             p.setPosY(pVoulue.getPosY());
-            return false; // Car le moyvement à lieu mais le joueur à perdu
+            if(co.isOkayToMove(c,pVoulue)){
+                return 2;
             }
-        return false;
+            return 0;
+        }else if(!cg.isOkayToMove(c,pVoulue)){  // Si !mur.garde
+            p = findInMap(c,e);
+            System.out.println(p.getPosX() + " " + p.getPosY());
+            p.setPosX(pVoulue.getPosX());
+            p.setPosY(pVoulue.getPosY());
+            return 1; // Car le moyvement à lieu mais le joueur à perdu
+            }
+        return 1;
     }
 }
