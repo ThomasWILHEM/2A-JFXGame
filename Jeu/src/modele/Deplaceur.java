@@ -25,10 +25,10 @@ public class Deplaceur {
         Position p = e.getP();
         int code;
         switch(k.getCode()){
-            case UP : code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()-1));break;
-            case DOWN: code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()+1));break;
-            case LEFT: code=deplacer(c,e,new Position(p.getPosX()-1,p.getPosY()));break;
-            case RIGHT: code=deplacer(c,e,new Position(p.getPosX()+1,p.getPosY()));break;
+            case UP : ((Personnage) e).setDirection('U');code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()-1));break;
+            case DOWN: ((Personnage) e).setDirection('D');code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()+1));break;
+            case LEFT: ((Personnage) e).setDirection('L');code=deplacer(c,e,new Position(p.getPosX()-1,p.getPosY()));break;
+            case RIGHT: ((Personnage) e).setDirection('R');code=deplacer(c,e,new Position(p.getPosX()+1,p.getPosY()));break;
             default: code=-1;break;
         }
         return code;

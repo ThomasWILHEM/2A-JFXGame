@@ -9,8 +9,8 @@ public class Garde extends Personnage implements Observateur{
     private int dir; //1=UP 2=RIGHT 3=DOWN 4=LEFT
     private BoucleurGarde boucleurGarde;
 
-    public Garde(Image sprite, int dist, Position p) {
-        super(sprite,p);
+    public Garde(Image sprite, int dist, Position p, char direction) {
+        super(sprite,p,direction);
     }
 
     @Override
