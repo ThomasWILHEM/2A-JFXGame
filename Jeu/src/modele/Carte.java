@@ -1,5 +1,8 @@
 package modele;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.util.*;
 import java.util.jar.JarOutputStream;
 
@@ -9,50 +12,34 @@ public class Carte {
 
 
 
-    private HashMap<Entity, Position> elements;
+    private List<Entity> elements;
 
-    public HashMap<Entity, Position> getElements() {return elements;}
+    public List<Entity> getElements() {return elements;}
 
     public Carte() {
-        elements = new HashMap<Entity, Position>();
-    }
-    //Mise a jour en whatIsAt, car sinon je peux pas vérifier la transparence de l'entité
-    List<Entity> whatIsAt(Position pVoulue) {
-        List<Entity> l = new ArrayList<>();
-        if(elements.containsValue(pVoulue)){
-            Set<Map.Entry<Entity,Position>> recherche = elements.entrySet();
-            for(Map.Entry<Entity,Position> ent:recherche){
-                if(ent.getValue().equals(pVoulue))
-                {
-                    l.add(ent.getKey());
-                }
-            }
-        }
-        return l;
+        elements = new ArrayList<>();
     }
 
-    public Position getPosJoueur(PersoJoueur j){
-        return elements.get(j);
-    }
+    //Mise a jour en whatIsAt, car sinon je peux pas vérifier la transparence de l'entité
+
 
     public void destroy(Objet o){
         elements.remove(o);
     }
 
-    public Entity lireCarte(String chemin){
+    public void lireCarte(String chemin){
         int i,j;
-        Entity joueur = new PersoJoueur("/Images/voleurUnique.png");
         LecteurDeCarte l = new LecteurDeCarte();
         try {
             char[][] cLue = l.lireCarte(chemin);
             for(i=0;i<l.getHauteur();i++){
                 for(j=0;j<l.getLongueur();j++){
                     switch(cLue[i][j]){
-                        case '1' : elements.put(new Mur("/Images/mur.png"),new Position(j,i));break;
-                        case '2' : elements.put(joueur,new Position(j,i));break;
-                        case '3' : elements.put(new Mur("/Images/floor_01_1.png"),new Position(j,i));break;
-                        case '4' : elements.put(new Garde("/Images/garde.png",0),new Position(j,i));break;
-                        case '5' : elements.put(new Objet("/Images/gems.png"),new Position(j,i));break;
+                        case '1' : elements.add(new Mur(new Image("/Images/mur.png"),new Position(j,i)));break;
+                        case '2' : elements.add(new PersoJoueur(new Image("/Images/voleurUnique.png"),new Position(j,i)));break;
+                        case '3' : elements.add(new Mur(new Image("/Images/floor_01_1.png"),new Position(j,i)));break;
+                        case '4' : elements.add(new Garde(new Image("/Images/garde.png"),2,new Position(j,i)));break;
+                        case '5' : elements.add(new Objet(new Image("/Images/gems.png"),new Position(j,i)));break;
                     }
                 }
                 longueurP = j;
@@ -64,6 +51,5 @@ public class Carte {
             System.out.println("Lecture de carte impossible");
             System.out.println(e.getCause());
         }
-        return joueur;
     }
 }

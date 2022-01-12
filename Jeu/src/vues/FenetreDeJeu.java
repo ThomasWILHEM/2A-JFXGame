@@ -10,6 +10,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import modele.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -35,12 +36,9 @@ public class FenetreDeJeu {
 
     private void showMap(Carte c){
         map.setBackground(new Background(new BackgroundImage(new Image("/Images/floor_01_1.png"), BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT,BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
-        Set<Map.Entry<modele.Entity,Position>> elems = c.getElements().entrySet();
-        for(Map.Entry<Entity,Position> ent : elems){
-            ImageView i = new ImageView(ent.getKey().getSprite());
-            i.xProperty().bind(ent.getValue().posXProperty().multiply(45));
-            i.yProperty().bind(ent.getValue().posYProperty().multiply(45));
-            map.getChildren().add(i);
+        List<Entity> elems= c.getElements();
+        for(Entity ent : elems){
+            map.getChildren().add(ent.getSprite());
         }
     }
 

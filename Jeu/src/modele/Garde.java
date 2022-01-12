@@ -1,9 +1,24 @@
 package modele;
 
-public class Garde extends Personnage{
+import javafx.application.Platform;
+import javafx.scene.image.Image;
+
+public class Garde extends Personnage implements Observateur{
+
     private int distanceVue;
-    public Garde(String sprite,int dist) {
-        super(sprite);
-        this.distanceVue=dist;
+    private int dir; //1=UP 2=RIGHT 3=DOWN 4=LEFT
+    private BoucleurGarde boucleurGarde;
+
+    public Garde(Image sprite, int dist, Position p) {
+        super(sprite,p);
+    }
+
+    @Override
+    public void update(){
+        Platform.runLater(()->{
+            if(dir==4)
+                dir=1;
+            dir++;
+        });
     }
 }

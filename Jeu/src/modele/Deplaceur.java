@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,21 +21,8 @@ public class Deplaceur {
         co = new ColisionneurObjet();
     }
 
-    private Position findInMap(Carte c,Entity e){
-        if(c.getElements().containsKey(e)){
-            Set<Map.Entry<Entity,Position>> recherche = c.getElements().entrySet();
-            for(Map.Entry<Entity,Position> ent:recherche){
-                if(ent.getKey() == e)
-                {
-                    return ent.getValue();
-                }
-            }
-        }
-        return null;
-    }
-
     public int traitementMouvement(Carte c, Entity e,KeyEvent k){
-        Position p = findInMap(c,e);
+        Position p = e.getP();
         int code;
         switch(k.getCode()){
             case UP : code=deplacer(c,e,new Position(p.getPosX(),p.getPosY()-1));break;
@@ -49,7 +37,7 @@ public class Deplaceur {
     public int deplacer(Carte c, Entity e, Position pVoulue){
         Position p;
         if(cm.isOkayToMove(c,pVoulue) && cg.isOkayToMove(c,pVoulue)){
-            p = findInMap(c,e);
+            p = e.getP();
             p.setPosX(pVoulue.getPosX());
             p.setPosY(pVoulue.getPosY());
             if(co.isOkayToMove(c,pVoulue)){
@@ -57,8 +45,7 @@ public class Deplaceur {
             }
             return 0;
         }else if(!cg.isOkayToMove(c,pVoulue)){  // Si !mur.garde
-            p = findInMap(c,e);
-            System.out.println(p.getPosX() + " " + p.getPosY());
+            p = e.getP();
             p.setPosX(pVoulue.getPosX());
             p.setPosY(pVoulue.getPosY());
             return 1; // Car le moyvement à lieu mais le joueur à perdu

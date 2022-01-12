@@ -1,8 +1,10 @@
 package modele;
 
+import javafx.scene.image.Image;
+
 public class Mur extends Entity{
-    public Mur(String sprite)
+    public Mur(Image sprite, Position p)
     {
-        super(sprite,true);
+        super(sprite,p,true);
     }
 }
