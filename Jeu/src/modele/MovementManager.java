@@ -1,17 +1,16 @@
 package modele;
 
-import com.sun.javafx.event.EventUtil;
 import javafx.scene.input.KeyEvent;
 
 import java.util.List;
 
 public class MovementManager {
     private Carte c;
-    private Deplaceur dep;
+    private DeplaceurJoueur dep;
     public MovementManager() {
         c = new Carte();
         c.lireCarte("rsrc/Map/map1.txt");
-        dep = new Deplaceur();
+        dep = new DeplaceurJoueur();
     }
 
     public Carte getCarte() {return c;}

@@ -51,7 +51,11 @@ public class FenetreDeJeu {
         Score s = new Score();
         movementManager = new MovementManager();
         showMap(movementManager.getCarte());
-
+        List<Entity> entities = movementManager.getCarte().getElements();
+        for(Entity ent : entities){
+            if(ent.getClass() == Garde.class)
+                new IAGarde(movementManager.getCarte(),b,(Garde)ent);
+        }
         map.setFocusTraversable(true);
         map.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -59,7 +63,6 @@ public class FenetreDeJeu {
                 switch(movementManager.gestionTouches(keyEvent)) {
                     case 2:
                         s.addScore(1);
-                        List<Entity> entities = movementManager.getCarte().getElements();
                         for(Entity ent : entities){
                             if (ent.getClass() == PersoJoueur.class){
                                 for (Entity entity2 : entities){
