@@ -1,7 +1,9 @@
 package modele;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 import java.util.*;
 import java.util.jar.JarOutputStream;
@@ -24,7 +26,8 @@ public class Carte {
 
 
     public void destroy(Objet o){
-        elements.remove(o);
+        //o.setSprite(null);
+        Platform.runLater(()->{elements.remove(o);});
     }
 
     public void lireCarte(String chemin){

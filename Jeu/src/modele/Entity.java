@@ -19,6 +19,7 @@ public abstract class Entity {
     public ImageView getSprite() {
         return sprite;
     }
+    public void setSprite(ImageView iv) { sprite=iv;}
     public boolean isSolid() {
         return isSolid;
     }

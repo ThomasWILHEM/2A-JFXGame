@@ -35,6 +35,7 @@ public class FenetreDeJeu {
 
 
     private void showMap(Carte c){
+        map.getChildren().clear();
         map.setBackground(new Background(new BackgroundImage(new Image("/Images/floor_01_1.png"), BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT,BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
         List<Entity> elems= c.getElements();
         for(Entity ent : elems){
@@ -58,11 +59,20 @@ public class FenetreDeJeu {
                 switch(movementManager.gestionTouches(keyEvent)) {
                     case 2:
                         s.addScore(1);
+                        List<Entity> entities = movementManager.getCarte().getElements();
+                        for(Entity ent : entities){
+                            if (ent.getClass() == PersoJoueur.class){
+                                for (Entity entity2 : entities){
+                                    if (entity2.getClass() == Objet.class && entity2.getP().equals(ent.getP())) {
+                                        map.getChildren().remove(entity2.getSprite());
+                                    }
+                                }
+                            }
+                        }
                         break;
                     default:
                         break;
                 }
-                showMap(movementManager.getCarte());
             }
         });
         tBoucleur.start();
