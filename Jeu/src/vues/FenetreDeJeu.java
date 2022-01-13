@@ -73,6 +73,8 @@ public class FenetreDeJeu {
                             }
                         }
                         break;
+                    case 3:
+                        showMap(movementManager.getCarte());
                     default:
                         break;
                 }
