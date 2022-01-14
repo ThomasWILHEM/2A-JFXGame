@@ -1,12 +1,12 @@
 package modele;
 
+import com.sun.javafx.webkit.UtilitiesImpl;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 
 import java.util.*;
-import java.util.jar.JarOutputStream;
 
 public class Carte {
     private int longueurP;
@@ -14,12 +14,12 @@ public class Carte {
 
 
 
-    private List<Entity> elements;
+    private ObservableList<Entity> elements;
 
-    public List<Entity> getElements() {return elements;}
+    public ObservableList<Entity> getElements() {return elements;}
 
     public Carte() {
-        elements = new ArrayList<>();
+        elements = FXCollections.observableArrayList();
     }
 
     //Mise a jour en whatIsAt, car sinon je peux pas vérifier la transparence de l'entité
@@ -34,6 +34,20 @@ public class Carte {
         elements.clear();
     }
 
+    public void clearVueGarde(Garde g){
+        /*Iterator<Entity> it = elements.iterator();
+        while(it.hasNext()){
+            Entity vg = it.next();
+            if(vg.getClass()==VueGarde.class){
+                if(((VueGarde) vg).getGardePossesseur().equals(g))
+                    it.remove();
+            }
+        }*/
+        Platform.runLater(()->{
+            elements.removeIf(entity -> entity.getClass()==VueGarde.class && ((VueGarde) entity).getGardePossesseur().equals(g));
+        });
+
+    }
 
     public void lireCarte(String chemin){
         int i,j;

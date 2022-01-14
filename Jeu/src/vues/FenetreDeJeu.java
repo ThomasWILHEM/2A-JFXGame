@@ -1,21 +1,20 @@
 package vues;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import modele.*;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 
-public class FenetreDeJeu {
+public class FenetreDeJeu{
 
     @FXML
     public Pane map;
@@ -50,8 +49,10 @@ public class FenetreDeJeu {
 
         Score s = new Score();
         movementManager = new MovementManager();
-        showMap(movementManager.getCarte());
-        List<Entity> entities = movementManager.getCarte().getElements();
+        ObservableList<Entity> entities = movementManager.getCarte().getElements();
+        entities.addListener((InvalidationListener) observable -> {
+            showMap(movementManager.getCarte());
+        });
         for(Entity ent : entities){
             if(ent.getClass() == Garde.class)
                 new IAGarde(movementManager.getCarte(),b,(Garde)ent);
@@ -63,24 +64,14 @@ public class FenetreDeJeu {
                 switch(movementManager.gestionTouches(keyEvent)) {
                     case 2:
                         s.addScore(1);
-                        for(Entity ent : entities){
-                            if (ent.getClass() == PersoJoueur.class){
-                                for (Entity entity2 : entities){
-                                    if (entity2.getClass() == Objet.class && entity2.getP().equals(ent.getP())) {
-                                        map.getChildren().remove(entity2.getSprite());
-                                    }
-                                }
-                            }
-                        }
                         break;
-                    case 3:
-                        showMap(movementManager.getCarte());
                     default:
                         break;
                 }
             }
         });
         tBoucleur.start();
+        showMap(movementManager.getCarte());
         labelTemps.textProperty().bind(g.tempsProperty().asString());
         labelScore.textProperty().bind(s.CounterProperty().asString());
     }
