@@ -1,13 +1,13 @@
-package modele;
+package modele.Acteurs;
 
 import javafx.scene.image.Image;
-import javafx.scene.transform.Rotate;
+import modele.Utils.Position;
 
-abstract class Personnage extends Entity{
+public class Personnage extends Entity{
 
     private int speed;
     private char direction;
-    public Personnage(Image sprite, Position p,char dir) {
+    public Personnage(Image sprite, Position p, char dir) {
         super(sprite,p,false);
         if (dir == 'U' || dir == 'D' || dir == 'L' || dir == 'R')
         {

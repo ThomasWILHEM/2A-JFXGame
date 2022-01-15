@@ -1,6 +1,11 @@
 package modele;
 
 import javafx.scene.input.KeyEvent;
+import modele.Acteurs.Entity;
+import modele.Acteurs.Objet;
+import modele.Acteurs.PersoJoueur;
+import modele.Deplaceurs.DeplaceurJoueur;
+import modele.Utils.Carte;
 
 import java.util.List;
 

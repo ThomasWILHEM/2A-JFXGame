@@ -10,6 +10,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import modele.*;
+import modele.Acteurs.Entity;
+import modele.Acteurs.Garde;
+import modele.Boucleurs.BoucleurJeu;
+import modele.Utils.Carte;
+import modele.Utils.IAGarde;
+import modele.Utils.Score;
+import modele.Utils.Timer;
 
 import java.util.List;
 
@@ -51,6 +58,7 @@ public class FenetreDeJeu{
         movementManager = new MovementManager();
         ObservableList<Entity> entities = movementManager.getCarte().getElements();
         entities.addListener((InvalidationListener) observable -> {
+            // Vérif que le joueur n'est pas touché par une zone
             showMap(movementManager.getCarte());
         });
         for(Entity ent : entities){

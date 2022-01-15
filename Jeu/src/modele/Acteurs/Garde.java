@@ -1,7 +1,7 @@
-package modele;
+package modele.Acteurs;
 
-import javafx.application.Platform;
 import javafx.scene.image.Image;
+import modele.Utils.Position;
 
 public class Garde extends Personnage{
 

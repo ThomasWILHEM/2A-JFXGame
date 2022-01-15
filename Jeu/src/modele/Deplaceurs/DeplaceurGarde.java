@@ -1,9 +1,14 @@
-package modele;
+package modele.Deplaceurs;
 
 import javafx.application.Platform;
 import javafx.scene.image.Image;
+import modele.Acteurs.Entity;
+import modele.Acteurs.Garde;
+import modele.Acteurs.Personnage;
+import modele.Acteurs.VueGarde;
+import modele.Utils.Carte;
+import modele.Utils.Position;
 
-import java.security.Guard;
 import java.util.List;
 
 public class DeplaceurGarde extends Deplaceur {

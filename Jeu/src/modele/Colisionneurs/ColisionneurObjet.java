@@ -1,6 +1,10 @@
-package modele;
+package modele.Colisionneurs;
 
-import java.util.ArrayList;
+import modele.Utils.Carte;
+import modele.Acteurs.Entity;
+import modele.Acteurs.Objet;
+import modele.Utils.Position;
+
 import java.util.List;
 
 public class ColisionneurObjet implements Colisionneur{

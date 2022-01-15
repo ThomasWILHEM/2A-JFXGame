@@ -1,4 +1,4 @@
-package modele;
+package modele.Utils;
 
 import java.io.*;
 

@@ -1,4 +1,9 @@
-package modele;
+package modele.Utils;
+
+import modele.Boucleurs.BoucleurJeu;
+import modele.Deplaceurs.DeplaceurGarde;
+import modele.Acteurs.Garde;
+import modele.Observateur;
 
 public class IAGarde implements Observateur {
 

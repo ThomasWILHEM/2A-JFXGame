@@ -1,10 +1,4 @@
-package modele;
-
-import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.binding.Binding;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.ObservableList;
+package modele.Boucleurs;
 
 public class BoucleurJeu extends Boucleur {
 

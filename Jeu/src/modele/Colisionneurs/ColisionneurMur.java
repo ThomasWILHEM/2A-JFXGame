@@ -1,4 +1,8 @@
-package modele;
+package modele.Colisionneurs;
+
+import modele.Utils.Carte;
+import modele.Acteurs.Entity;
+import modele.Utils.Position;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package modele;
+package modele.Acteurs;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import modele.Utils.Position;
 
 public class Objet extends Entity{
 

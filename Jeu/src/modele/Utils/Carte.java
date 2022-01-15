@@ -1,12 +1,10 @@
-package modele;
+package modele.Utils;
 
-import com.sun.javafx.webkit.UtilitiesImpl;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
-
-import java.util.*;
+import modele.Acteurs.*;
 
 public class Carte {
     private int longueurP;
@@ -35,16 +33,8 @@ public class Carte {
     }
 
     public void clearVueGarde(Garde g){
-        /*Iterator<Entity> it = elements.iterator();
-        while(it.hasNext()){
-            Entity vg = it.next();
-            if(vg.getClass()==VueGarde.class){
-                if(((VueGarde) vg).getGardePossesseur().equals(g))
-                    it.remove();
-            }
-        }*/
         Platform.runLater(()->{
-            elements.removeIf(entity -> entity.getClass()==VueGarde.class && ((VueGarde) entity).getGardePossesseur().equals(g));
+            elements.removeIf(entity -> entity.getClass()== VueGarde.class && ((VueGarde) entity).getGardePossesseur().equals(g));
         });
 
     }

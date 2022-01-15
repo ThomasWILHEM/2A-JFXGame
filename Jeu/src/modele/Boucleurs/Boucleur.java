@@ -1,4 +1,6 @@
-package modele;
+package modele.Boucleurs;
+
+import modele.Observateur;
 
 import java.util.ArrayList;
 import java.util.List;

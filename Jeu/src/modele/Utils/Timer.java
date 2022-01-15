@@ -1,8 +1,10 @@
-package modele;
+package modele.Utils;
 
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import modele.Boucleurs.BoucleurJeu;
+import modele.Observateur;
 
 public class Timer implements Observateur {
 

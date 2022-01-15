@@ -1,6 +1,14 @@
-package modele;
+package modele.Deplaceurs;
 
 import javafx.scene.input.KeyEvent;
+import modele.Utils.Carte;
+import modele.Colisionneurs.ColisionneurGarde;
+import modele.Colisionneurs.ColisionneurMur;
+import modele.Colisionneurs.ColisionneurObjet;
+import modele.Colisionneurs.ColisionneurSortie;
+import modele.Acteurs.Entity;
+import modele.Acteurs.Personnage;
+import modele.Utils.Position;
 
 public class DeplaceurJoueur extends Deplaceur{
 
@@ -16,7 +24,7 @@ public class DeplaceurJoueur extends Deplaceur{
         cs = new ColisionneurSortie();
     }
 
-    public int traitementMouvement(Carte c, Entity e,KeyEvent k){
+    public int traitementMouvement(Carte c, Entity e, KeyEvent k){
         Position p = e.getP();
         int code;
         switch(k.getCode()){
@@ -47,6 +55,7 @@ public class DeplaceurJoueur extends Deplaceur{
             p = e.getP();
             p.setPosX(pVoulue.getPosX());
             p.setPosY(pVoulue.getPosY());
+            System.out.println("FINFINFINFINFINFIN");
             return 1; // Car le mouvement à lieu mais le joueur à perdu
             }
         return 1;
