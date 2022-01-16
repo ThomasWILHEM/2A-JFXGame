@@ -14,6 +14,7 @@ public class Garde extends Personnage{
         distanceVue=dist;
         id=cptGarde;
         cptGarde++;
+        super.isSolid = true;
     }
 
     public int getId() {

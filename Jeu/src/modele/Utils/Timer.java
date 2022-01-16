@@ -1,5 +1,6 @@
 package modele.Utils;
 
+import Launcher.Main;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -30,6 +31,16 @@ public class Timer implements Observateur {
             Platform.runLater(()->{
                 if(getTempsP()!=0)
                     setTempsP(getTempsP()-1);
+                else {
+                    try {
+                        boucleurJeu.setGameOver(true);
+                        Main.mg.unloadVue("/FXML/FenetreDeJeu.fxml");
+                        Main.mg.showVue("/FXML/End.fxml");
+                        setTempsP(90);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             });
             cptAct=0;
         }

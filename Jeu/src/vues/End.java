@@ -1,5 +1,6 @@
 package vues;
 
+import Launcher.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +20,7 @@ public class End {
         s.close();
     }
 
-    public void restartGame(ActionEvent actionEvent) {
-
+    public void restartGame(ActionEvent actionEvent) throws Exception{
+        Main.mg.showVue("/FXML/FenetreDeJeu.fxml");
     }
 }

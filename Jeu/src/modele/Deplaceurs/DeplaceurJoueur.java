@@ -56,7 +56,7 @@ public class DeplaceurJoueur extends Deplaceur{
             p.setPosX(pVoulue.getPosX());
             p.setPosY(pVoulue.getPosY());
             System.out.println("FINFINFINFINFINFIN");
-            return 1; // Car le mouvement à lieu mais le joueur à perdu
+            return 4; // Car le mouvement à lieu mais le joueur à perdu
             }
         return 1;
     }

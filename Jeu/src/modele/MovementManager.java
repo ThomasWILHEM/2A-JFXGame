@@ -31,29 +31,29 @@ public class MovementManager {
                 code=dep.traitementMouvement(c,ent,k);
             }
         }
-        if(code==2) {
-            List<Entity> ent = c.getElements();
-            for (Entity entity : ent) {
-                if (entity.getClass() == PersoJoueur.class) {
-                    for (Entity entity2 : ent) {
-                        if (entity2.getClass() == Objet.class && entity2.getP().equals(entity.getP()))
-                            c.destroy((Objet) entity2);
+        switch(code){
+            case 2:
+                List<Entity> ent = c.getElements();
+                for (Entity entity : ent) {
+                    if (entity.getClass() == PersoJoueur.class) {
+                        for (Entity entity2 : ent) {
+                            if (entity2.getClass() == Objet.class && entity2.getP().equals(entity.getP()))
+                                c.destroy((Objet) entity2);
+                        }
+                        return 2;
                     }
-                    return 2;
                 }
-            }
+            case 3:
+                if(numNiveau==3){
+                    return 120;
+                }
+                numNiveau++;
+                if(numNiveau<4){
+                    c.clearCarte();
+                    c.lireCarte("rsrc/Map/map"+numNiveau+".txt");
+                }
+                return 3;
+            default: return code;
         }
-        if(code==3){
-            if(numNiveau==3){
-                //Page finale
-            }
-            numNiveau++;
-            if(numNiveau<4){
-                c.clearCarte();
-                c.lireCarte("rsrc/Map/map"+numNiveau+".txt");
-            }
-            return 3;
-        }
-        return 0;
     }
 }

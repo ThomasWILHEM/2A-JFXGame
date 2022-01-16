@@ -1,5 +1,6 @@
 package vues;
 
+import Launcher.Main;
 import javafx.beans.InvalidationListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -52,7 +53,7 @@ public class FenetreDeJeu{
     public void initialize(){
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
-        g = new Timer(90,b);
+        g = new Timer(2,b);
 
         Score s = new Score();
         movementManager = new MovementManager();
@@ -70,9 +71,22 @@ public class FenetreDeJeu{
             @Override
             public void handle(KeyEvent keyEvent) {
                 switch(movementManager.gestionTouches(keyEvent)) {
+                    case 4:
+                        try {
+                            Main.mg.showVue("/FXML/End.fxml");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
                     case 2:
                         s.addScore(1);
                         break;
+                    case 120: //Fin du jeu
+                        try {
+                            Main.mg.showVue("/FXML/End.fxml");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     default:
                         break;
                 }
