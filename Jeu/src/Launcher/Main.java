@@ -23,5 +23,10 @@ public class Main extends Application {
             System.exit(0);
         });
     }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+    }
 }
 

@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.stage.Window;
 import modele.*;
 import modele.Acteurs.Entity;
 import modele.Acteurs.Garde;
@@ -72,12 +73,15 @@ public class FenetreDeJeu{
                 new IAGarde(movementManager.getCarte(),b,(Garde)ent);
         }
         map.setFocusTraversable(true);
+        //Main.mg.setWindowWidth(movementManager.getCarte().getLongueurP()*45);
+        //Main.mg.setWindowHeight((movementManager.getCarte().getLargeurP()*45 + 200));
         map.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
                 switch(movementManager.gestionTouches(keyEvent)) {
                     case 4:
                         try {
+                            b.setGameOver(true);
                             Main.mg.showVue("/FXML/GameOver.fxml");
 
                         } catch (Exception e) {
@@ -90,6 +94,7 @@ public class FenetreDeJeu{
                         break;
                     case 120: //Fin du jeu
                         try {
+                            b.setGameOver(true);
                             Main.mg.showVue("/FXML/End.fxml");
                         } catch (Exception e) {
                             e.printStackTrace();

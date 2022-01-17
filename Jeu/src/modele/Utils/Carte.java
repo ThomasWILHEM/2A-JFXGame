@@ -78,4 +78,12 @@ public class Carte {
             System.out.println(e.getCause());
         }
     }
+
+    public int getLongueurP() {
+        return longueurP;
+    }
+
+    public int getLargeurP() {
+        return largeurP;
+    }
 }

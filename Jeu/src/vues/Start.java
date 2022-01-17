@@ -30,5 +30,6 @@ public class Start {
     public void onQuit(ActionEvent actionEvent) {
         Stage s = (Stage) playButton.getScene().getWindow();
         s.close();
+        System.exit(0);
     }
 }

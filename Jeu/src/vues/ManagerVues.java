@@ -63,4 +63,12 @@ public class ManagerVues {
     public void unloadVue(String chemin) throws IOException {
         vues.remove(chemin);
     }
+
+    public void setWindowWidth(double width){
+        primaryStage.setWidth(width);
+    }
+
+    public void setWindowHeight(double height){
+        primaryStage.setHeight(height);
+    }
 }

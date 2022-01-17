@@ -18,6 +18,7 @@ public class GameOver {
     public void quitAction(ActionEvent actionEvent) {
         Stage s = (Stage) quitB.getScene().getWindow();
         s.close();
+        System.exit(0);
     }
 
     public void restartGame(ActionEvent actionEvent) throws Exception{
