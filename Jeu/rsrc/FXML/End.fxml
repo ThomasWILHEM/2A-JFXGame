@@ -3,32 +3,32 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vues.End">
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.End">
    <center>
       <GridPane prefHeight="434.0" prefWidth="588.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" percentHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" percentHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="35.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="restartButton" onAction="#restartGame" mnemonicParsing="false" prefHeight="56.0" prefWidth="180.0" text="Rejouer" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="quitButton" onAction="#quitAction" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="Quitter" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame" prefHeight="56.0" prefWidth="180.0" text="Rejouer" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitAction" prefHeight="48.0" prefWidth="166.0" text="Quitter" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </GridPane.margin>
             </Button>
-            <Label fx:id="labelScore" style="-fx-border-color: black; -fx-border-width: 3; -fx-border-style: solid;" text="" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="scoreJoueur" style="-fx-border-color: black; -fx-border-width: 3; -fx-border-style: solid;" text="" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>
@@ -39,6 +39,11 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
+            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="listeJoueurs">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </ListView>
          </children>
          <BorderPane.margin>
             <Insets />

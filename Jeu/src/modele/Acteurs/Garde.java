@@ -5,8 +5,19 @@ import modele.Utils.Position;
 
 public class Garde extends Personnage{
 
+    /**
+     * Distance de vue d'un garde
+     */
     private int distanceVue;
+
+    /**
+     *
+     */
     private static int cptGarde=0;
+
+    /**
+     * Id du garde
+     */
     private int id;
 
     public Garde(Image sprite, int dist, Position p, char direction) {

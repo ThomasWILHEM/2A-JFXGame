@@ -23,6 +23,12 @@ public class ManagerVues {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Permet de charger une vue dans la HashMap
+     * @param chemin Chemin de la vue
+     * @return True si la vue à été créée, False si c'est la vue actuelle qui est chargée
+     * @throws Exception
+     */
     private Boolean loadVue(String chemin) throws Exception{
         if(currentView.equals(chemin)) {
             return false;
@@ -49,16 +55,11 @@ public class ManagerVues {
         }
     }
 
-    public void showGameOver(Score score){
-        FXMLLoader loader = new FXMLLoader();
-        try {
-            BorderPane st = loader.load(getClass().getResource("/FXML/GameOver.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
+    /**
+     * Permet de décharger une vue
+     * @param chemin Chemin de la vue à décharger
+     * @throws IOException
+     */
     public void unloadVue(String chemin) throws IOException {
         vues.remove(chemin);
     }

@@ -11,11 +11,24 @@ import modele.Observateur;
 
 public class IAGarde implements Observateur {
 
+    /**
+     * Garde utilisé
+     */
     private Garde g;
+
+    /**
+     * Carte
+     */
     private Carte c;
+
+    /**
+     * Déplaceur garde
+     */
     private DeplaceurGarde dG;
+
     BoucleurJeu b;
     int cptAct =0;
+
     public IAGarde(Carte c,BoucleurJeu b,Garde g){
         this.g = g;
         this.b = b;
@@ -27,6 +40,7 @@ public class IAGarde implements Observateur {
         }
         b.Subscribe(this);
     }
+
     @Override
     public void update() {
         if (cptAct == 30){

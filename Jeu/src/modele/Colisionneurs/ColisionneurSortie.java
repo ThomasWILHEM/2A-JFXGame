@@ -8,6 +8,12 @@ import modele.Acteurs.Sortie;
 import java.util.List;
 
 public class ColisionneurSortie implements Colisionneur{
+    /**
+     * Permet de gérer la colision avec une sortie
+     * @param c Carte
+     * @param p Position à laquelle regarder
+     * @return True si possible, False si impossible
+     */
     @Override
     public boolean isOkayToMove(Carte c, Position p) {
         List<Entity> elements = c.getElements();

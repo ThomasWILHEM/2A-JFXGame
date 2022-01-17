@@ -41,6 +41,10 @@ public class FenetreDeJeu{
     public MovementManager movementManager;
 
 
+    /**
+     * Permet d'actuliser la vue en ré-affichant la carte
+     * @param c Carte
+     */
     private void showMap(Carte c){
         map.getChildren().clear();
         map.setBackground(new Background(new BackgroundImage(new Image("/Images/floor_01_1.png"), BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT,BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
@@ -53,9 +57,10 @@ public class FenetreDeJeu{
     public void initialize(){
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
-        g = new Timer(5,b);
+        g = new Timer(20,b);
 
-        Score s = new Score();
+        Score s = Main.gj.getJoueurActuel().getScore();
+        s.actualizeScore();
         movementManager = new MovementManager();
         ObservableList<Entity> entities = movementManager.getCarte().getElements();
         entities.addListener((InvalidationListener) observable -> {
@@ -81,6 +86,7 @@ public class FenetreDeJeu{
                         break;
                     case 2:
                         s.addScore(1);
+                        s.actualizeScore();
                         break;
                     case 120: //Fin du jeu
                         try {
@@ -95,8 +101,8 @@ public class FenetreDeJeu{
         });
         tBoucleur.start();
         showMap(movementManager.getCarte());
-        labelTemps.textProperty().bind(g.tempsProperty().asString());
-        labelScore.textProperty().bind(s.CounterProperty().asString());
+        labelTemps.textProperty().bind(g.tempsProperty());
+        labelScore.textProperty().bind(s.CounterProperty());
     }
 
 }

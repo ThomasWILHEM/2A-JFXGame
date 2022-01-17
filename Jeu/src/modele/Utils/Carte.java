@@ -7,11 +7,13 @@ import javafx.scene.image.Image;
 import modele.Acteurs.*;
 
 public class Carte {
+
     private int longueurP;
     private int largeurP;
 
-
-
+    /**
+     * Liste des entitées
+     */
     private ObservableList<Entity> elements;
 
     public ObservableList<Entity> getElements() {return elements;}
@@ -20,18 +22,26 @@ public class Carte {
         elements = FXCollections.observableArrayList();
     }
 
-    //Mise a jour en whatIsAt, car sinon je peux pas vérifier la transparence de l'entité
-
-
+    /**
+     * Permet de détruire un objet
+     * @param o Objet à détruire
+     */
     public void destroy(Objet o){
         //o.setSprite(null);
         Platform.runLater(()->{elements.remove(o);});
     }
 
+    /**
+     * Permet de vider la collection d'entitée
+     */
     public void clearCarte(){
         elements.clear();
     }
 
+    /**
+     * Permet d'enlever toutes les vueGardes de la collection d'entitée
+     * @param g
+     */
     public void clearVueGarde(Garde g){
         Platform.runLater(()->{
             elements.removeIf(entity -> entity.getClass()== VueGarde.class && ((VueGarde) entity).getGardePossesseur().equals(g));
@@ -39,6 +49,10 @@ public class Carte {
 
     }
 
+    /**
+     * Permet de remplire la collection d'entitée de la carte
+     * @param chemin
+     */
     public void lireCarte(String chemin){
         int i,j;
         LecteurDeCarte l = new LecteurDeCarte();

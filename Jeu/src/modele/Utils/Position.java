@@ -5,11 +5,18 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class Position {
 
+    /**
+     * Position x de l'entitée
+     */
     private IntegerProperty posX =  new SimpleIntegerProperty();
     public int getPosX() {return posX.getValue();}
     public void setPosX(int value) { posX.setValue(value);}
     public IntegerProperty posXProperty() { return posX;}
 
+
+    /**
+     * Position y de l'entitée
+     */
     private IntegerProperty posY =  new SimpleIntegerProperty();
     public int getPosY() {return posY.getValue();}
     public void setPosY(int value) { posY.setValue(value);}

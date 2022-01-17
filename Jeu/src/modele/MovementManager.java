@@ -22,6 +22,10 @@ public class MovementManager {
         numNiveau=1;
     }
 
+    /**
+     * Permet de récuperer la carte
+     * @return Carte
+     */
     public Carte getCarte() {return c;}
 
     public int gestionTouches(KeyEvent k) {

@@ -6,6 +6,12 @@ public class LecteurDeCarte {
     private int longueur =0;
     private int hauteur =0;
 
+    /**
+     * Permet de lire une carte depuis un fichier texte
+     * @param chemin Chemin du fichier texte
+     * @return Tableau de char représentant la carte
+     * @throws FileNotFoundException
+     */
     public char [][] lireCarte(String chemin) throws FileNotFoundException {
         char[][] carte = new char[11][34];
         String line;

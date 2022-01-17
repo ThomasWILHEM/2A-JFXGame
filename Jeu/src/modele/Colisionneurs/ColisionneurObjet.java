@@ -9,6 +9,12 @@ import java.util.List;
 
 public class ColisionneurObjet implements Colisionneur{
 
+    /**
+     * Permet de gérer la colision avec un objet
+     * @param c Carte
+     * @param p Position à laquelle regarder
+     * @return True si possible, False si impossible
+     */
     @Override
     public boolean isOkayToMove(Carte c, Position p) {
         List<Entity> elements = c.getElements();

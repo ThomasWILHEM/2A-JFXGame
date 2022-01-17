@@ -4,6 +4,7 @@ public class BoucleurJeu extends Boucleur {
 
     public BoucleurJeu(){
     }
+
     @Override
     public void run() {
         while(true) {

@@ -5,8 +5,11 @@ import modele.Utils.Position;
 
 public class Personnage extends Entity{
 
-    private int speed;
+    /**
+     * Direction du personnage
+     */
     private char direction;
+
     public Personnage(Image sprite, Position p, char dir) {
         super(sprite,p,false);
         if (dir == 'U' || dir == 'D' || dir == 'L' || dir == 'R')
@@ -21,6 +24,10 @@ public class Personnage extends Entity{
         return direction;
     }
 
+    /**
+     * Permet de set la direction du personnage
+     * @param direction Char permettant de donner la direction voulue
+     */
     public void setDirection(char direction) {
         switch(direction) {
             case 'U' : this.getSprite().setRotate(270); break;

@@ -10,11 +10,22 @@ import java.util.List;
 
 public class DeplaceurGarde extends Deplaceur {
 
+    /**
+     * Personnage joueur
+     */
     private PersoJoueur j;
+
     public DeplaceurGarde(PersoJoueur pj){
         j = pj;
     }
 
+    /**
+     * Permet de déplacer un garde
+     * @param c Carte
+     * @param e Entitée à déplacer
+     * @param pVoulue Position à laquelle déplacer l'entitée
+     * @return Retourne un code
+     */
     @Override
     public int deplacer(Carte c, Entity e, Position pVoulue) {
         System.out.println(((Personnage) e).getDirection());
