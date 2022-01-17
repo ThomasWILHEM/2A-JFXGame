@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.End">
+<BorderPane stylesheets="@CSS/Game.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.End">
    <center>
       <GridPane prefHeight="434.0" prefWidth="588.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -22,22 +22,16 @@
           <RowConstraints minHeight="10.0" percentHeight="35.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame" prefHeight="56.0" prefWidth="180.0" text="Rejouer" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitAction" prefHeight="48.0" prefWidth="166.0" text="Quitter" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button styleClass="restartButton" fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame" prefHeight="56.0" prefWidth="180.0" text="Rejouer"  GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button styleClass="quitButton" fx:id="quitButton" mnemonicParsing="false" onAction="#quitAction" prefHeight="48.0" prefWidth="166.0" text="Quitter" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Label fx:id="scoreJoueur" style="-fx-border-color: black; -fx-border-width: 3; -fx-border-style: solid;" text="" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="36.0" />
-               </font>
+            <Label fx:id="scoreJoueur" styleClass="score" text="" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
             </Label>
             <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="listeJoueurs">
                <GridPane.margin>

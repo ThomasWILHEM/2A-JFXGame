@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.FenetreDeJeu">
+<BorderPane maxHeight="-Infinity" stylesheets="@CSS/Game.css" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.FenetreDeJeu">
    <center>
       <GridPane fx:id="Grille" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -21,7 +21,7 @@
           <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <GridPane prefHeight="701.0" prefWidth="604.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+             <GridPane styleClass="gamePane" prefHeight="701.0" prefWidth="604.0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
                <columnConstraints>
                   <ColumnConstraints />
                   <ColumnConstraints />
@@ -43,24 +43,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="labelScore" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;" text=""  GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label fx:id="labelScore" styleClass="score"  text=""  GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
                   </Label>
-                  <Text fx:id="labelTemps" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-style: solid;" text="" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Text fx:id="labelTemps" styleClass="score"  text="" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="30.0" />
                      </GridPane.margin>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
                   </Text>
                </children>
             </GridPane>

@@ -1,7 +1,10 @@
 package Launcher;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import modele.Utils.GestionnaireJoueurs;
 import vues.ManagerVues;
 
@@ -15,6 +18,10 @@ public class Main extends Application {
         mg = new ManagerVues(primaryStage);
         mg.showVue("/FXML/Start.fxml");
 
+        primaryStage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 }
 

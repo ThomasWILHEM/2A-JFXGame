@@ -3,6 +3,7 @@ package vues;
 import Launcher.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -13,12 +14,6 @@ public class GameOver {
 
     @FXML
     public Button quitB;
-
-    public void initialize(){
-        /*Scene scene = quitB.getScene();
-        scene.getStylesheets().add("CSS/GameOver.css");
-        quitB.getStyleClass().add("quitButton");*/
-    }
 
     public void quitAction(ActionEvent actionEvent) {
         Stage s = (Stage) quitB.getScene().getWindow();

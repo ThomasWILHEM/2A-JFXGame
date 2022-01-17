@@ -1,0 +1,47 @@
+.quitButton{
+    -fx-border-radius:20;
+    -fx-background-color:#FF2C00;
+    -fx-padding: 10;
+    -fx-font-size: 15;
+    -fx-text-alignment: center;
+}
+
+.restartButton{
+    -fx-border-radius:20;
+    -fx-background-color:#00ACFF;
+    -fx-padding: 10;
+    -fx-font-size: 30;
+    -fx-text-alignment: center;
+}
+
+.textGO{
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-font-size: 45;
+    -fx-font-weight: bold;
+}
+
+.nomJeu{
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+
+.score{
+    -fx-border-color: black;
+    -fx-border-width: 3;
+    -fx-border-style: solid;
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-font: 36;
+    -fx-padding: 10;
+}
+
+.gamePane{
+    -fx-pref-height: 700;
+    -fx-pref-width: 600;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-style: solid;
+}

@@ -7,9 +7,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-<GridPane fx:controller="vues.Start" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx">
+<GridPane fx:controller="vues.Start" stylesheets="@CSS/Game.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -20,25 +19,13 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Nom du Jeu" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+      <Label styleClass="nomJeu" text="Steal It If You Can" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
       <TextField fx:id="name" promptText="Entrez un nom" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="200.0" right="200.0" />
          </GridPane.margin>
       </TextField>
-      <Button fx:id="playButton" onAction="#onPlay" mnemonicParsing="false" text="Jouer" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="quitButton" onAction="#onQuit" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
+      <Button styleClass="restartButton" fx:id="playButton" onAction="#onPlay" mnemonicParsing="false" text="Jouer" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER"/>
+      <Button styleClass="quitButton" fx:id="quitButton" onAction="#onQuit" mnemonicParsing="false" text="Quitter" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP"/>
    </children>
 </GridPane>
