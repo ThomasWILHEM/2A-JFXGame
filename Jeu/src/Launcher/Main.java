@@ -10,7 +10,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         mg = new ManagerVues(primaryStage);
-        mg.loadVue("/FXML/End.fxml");
         mg.showVue("/FXML/End.fxml");
 
     }

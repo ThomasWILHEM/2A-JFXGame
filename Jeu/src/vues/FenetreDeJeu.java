@@ -53,7 +53,7 @@ public class FenetreDeJeu{
     public void initialize(){
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
-        g = new Timer(2,b);
+        g = new Timer(5,b);
 
         Score s = new Score();
         movementManager = new MovementManager();
@@ -73,7 +73,8 @@ public class FenetreDeJeu{
                 switch(movementManager.gestionTouches(keyEvent)) {
                     case 4:
                         try {
-                            Main.mg.showVue("/FXML/End.fxml");
+                            Main.mg.showVue("/FXML/GameOver.fxml");
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

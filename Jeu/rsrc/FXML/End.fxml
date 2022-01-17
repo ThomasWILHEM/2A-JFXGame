@@ -28,7 +28,7 @@
                   <Insets top="30.0" />
                </GridPane.margin>
             </Button>
-            <Label style="-fx-border-color: black; -fx-border-width: 3; -fx-border-style: solid;" text="Score : 10" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Label fx:id="labelScore" style="-fx-border-color: black; -fx-border-width: 3; -fx-border-style: solid;" text="" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="36.0" />
                </font>

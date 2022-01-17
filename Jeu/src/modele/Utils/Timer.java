@@ -34,9 +34,7 @@ public class Timer implements Observateur {
                 else {
                     try {
                         boucleurJeu.setGameOver(true);
-                        Main.mg.unloadVue("/FXML/FenetreDeJeu.fxml");
-                        Main.mg.showVue("/FXML/End.fxml");
-                        setTempsP(90);
+                        Main.mg.showVue("/FXML/GameOver.fxml");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

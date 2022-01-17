@@ -1,5 +1,6 @@
 package modele;
 
+import Launcher.Main;
 import javafx.scene.input.KeyEvent;
 import modele.Acteurs.Entity;
 import modele.Acteurs.Objet;
@@ -23,7 +24,7 @@ public class MovementManager {
 
     public Carte getCarte() {return c;}
 
-    public int gestionTouches(KeyEvent k){
+    public int gestionTouches(KeyEvent k) {
         int code=0;
         List<Entity> elements = c.getElements();
         for(Entity ent : elements){
@@ -53,6 +54,7 @@ public class MovementManager {
                     c.lireCarte("rsrc/Map/map"+numNiveau+".txt");
                 }
                 return 3;
+
             default: return code;
         }
     }
