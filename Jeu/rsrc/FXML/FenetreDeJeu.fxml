@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.layout.VBox?>
-<BorderPane maxHeight="-Infinity" stylesheets="@CSS/Game.css" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.FenetreDeJeu">
+<BorderPane minHeight="650" minWidth="1500" maxHeight="650" stylesheets="@CSS/Game.css" maxWidth="1500"  xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.FenetreDeJeu">
    <center>
       <GridPane fx:id="Grille" BorderPane.alignment="CENTER">
         <columnConstraints>

@@ -5,7 +5,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Score {
+import java.io.Serializable;
+
+public class Score{
+
+    public int getScore() {
+        return score;
+    }
 
     /**
      * Score (en int)
@@ -14,6 +20,11 @@ public class Score {
 
     public Score() {
         score=0;
+        setCounterP("Score : " + score);
+    }
+
+    public Score(int s){
+        score=s;
         setCounterP("Score : " + score);
     }
 

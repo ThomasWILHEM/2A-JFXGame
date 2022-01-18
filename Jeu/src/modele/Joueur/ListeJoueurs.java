@@ -5,9 +5,17 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ListeJoueurs implements Serializable {
+
+public class ListeJoueurs {
+
+    public List<Joueur> getSaveList() {
+        return saveList;
+    }
+
+    List<Joueur> saveList = new ArrayList<>();
 
     /**
      * Liste de tous les joueurs
@@ -19,6 +27,7 @@ public class ListeJoueurs implements Serializable {
     public ListProperty<Joueur> joueursProperty() {return joueurs;}
 
     public void addJoueur(Joueur joueur) {
+        saveList.add(joueur);
         joueursObs.add(joueur);
     }
 }

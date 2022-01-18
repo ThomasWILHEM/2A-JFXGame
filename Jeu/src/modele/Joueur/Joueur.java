@@ -16,6 +16,8 @@ public class Joueur implements Serializable {
     public StringProperty infosJoueurProperty() {return infosJoueur;}
     public void setinfosJoueur(String infosJoueur) {this.infosJoueur.set(infosJoueur);}
 
+
+
     /**
      * Nom du joueur
      */
@@ -27,6 +29,10 @@ public class Joueur implements Serializable {
 
     public Score getScore() {
         return s;
+    }
+
+    public String getNom() {
+        return nom;
     }
 
     public Joueur(String nom, Score s) {

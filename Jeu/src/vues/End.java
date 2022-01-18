@@ -10,6 +10,9 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import modele.Joueur.Joueur;
+import modele.Persistance.SaverJoueurs;
+
+import java.io.IOException;
 
 public class End {
 
@@ -53,8 +56,12 @@ public class End {
     }
 
     public void quitAction(ActionEvent actionEvent) {
+        try {
+            SaverJoueurs.SaveJoueurs(Main.gj.getJoueurs());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Stage s = (Stage) quitButton.getScene().getWindow();
-        // SaverJoueurs.SaveJoueurs(); Quand la peristance sera en place
         s.close();
     }
 

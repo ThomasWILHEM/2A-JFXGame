@@ -8,9 +8,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane stylesheets="@CSS/Game.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.End">
+<BorderPane  stylesheets="@CSS/Game.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vues.End">
    <center>
       <GridPane prefHeight="434.0" prefWidth="588.0" BorderPane.alignment="CENTER">
         <columnConstraints>

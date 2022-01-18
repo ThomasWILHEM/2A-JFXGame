@@ -56,6 +56,7 @@ public class FenetreDeJeu{
     }
 
     public void initialize(){
+
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
         g = new Timer(20,b);

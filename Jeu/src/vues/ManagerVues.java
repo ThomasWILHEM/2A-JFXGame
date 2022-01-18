@@ -49,7 +49,7 @@ public class ManagerVues {
 
             }
             currentView = chemin;
-            sceneShowed = new Scene(vues.get(chemin));
+            sceneShowed = new Scene(vues.get(chemin),1500,650);
             primaryStage.setScene(sceneShowed);
             primaryStage.show();
         }

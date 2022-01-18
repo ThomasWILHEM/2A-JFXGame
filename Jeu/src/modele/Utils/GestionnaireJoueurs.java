@@ -2,6 +2,9 @@ package modele.Utils;
 
 import modele.Joueur.Joueur;
 import modele.Joueur.ListeJoueurs;
+import modele.Persistance.LoaderJoueurs;
+
+import java.io.IOException;
 
 public class GestionnaireJoueurs {
 
@@ -16,8 +19,13 @@ public class GestionnaireJoueurs {
     private Joueur joueurActuel;
 
     public GestionnaireJoueurs() {
-        //joueurs= LoaderJoueurs.LoadJoueurs(); Quand la persistance sera mise en place
-        joueurs = new ListeJoueurs();
+        try {
+            joueurs= LoaderJoueurs.LoadJoueurs();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(joueurs == null)
+            joueurs = new ListeJoueurs();
     }
 
     /**
