@@ -1,4 +1,4 @@
-package modele.Utils;
+package modele.Joueur;
 
 import modele.Joueur.Joueur;
 import modele.Joueur.ListeJoueurs;

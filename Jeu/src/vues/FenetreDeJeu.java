@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.stage.Window;
 import modele.*;
 import modele.Acteurs.Entity;
 import modele.Acteurs.Garde;
@@ -39,7 +38,7 @@ public class FenetreDeJeu{
 
     public BoucleurJeu b;
     public Timer g;
-    public MovementManager movementManager;
+    public ModeleManager modeleManager;
 
 
     /**
@@ -62,24 +61,24 @@ public class FenetreDeJeu{
         g = new Timer(20,b);
 
         Score s = Main.gj.getJoueurActuel().getScore();
-        s.actualizeScore();
-        movementManager = new MovementManager();
-        ObservableList<Entity> entities = movementManager.getCarte().getElements();
+        s.refreshScore();
+        modeleManager = new ModeleManager();
+        ObservableList<Entity> entities = modeleManager.getCarte().getElements();
         entities.addListener((InvalidationListener) observable -> {
             // Vérif que le joueur n'est pas touché par une zone
-            showMap(movementManager.getCarte());
+            showMap(modeleManager.getCarte());
         });
         for(Entity ent : entities){
             if(ent.getClass() == Garde.class)
-                new IAGarde(movementManager.getCarte(),b,(Garde)ent);
+                new IAGarde(modeleManager.getCarte(),b,(Garde)ent);
         }
         map.setFocusTraversable(true);
-        //Main.mg.setWindowWidth(movementManager.getCarte().getLongueurP()*45);
-        //Main.mg.setWindowHeight((movementManager.getCarte().getLargeurP()*45 + 200));
+        Main.mg.setWindowWidth(modeleManager.getCarte().getLongueurP()*45);
+        Main.mg.setWindowHeight((modeleManager.getCarte().getLargeurP()*45 + 200));
         map.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                switch(movementManager.gestionTouches(keyEvent)) {
+                switch(modeleManager.gestionTouches(keyEvent)) {
                     case 4:
                         try {
                             b.setGameOver(true);
@@ -91,7 +90,7 @@ public class FenetreDeJeu{
                         break;
                     case 2:
                         s.addScore(1);
-                        s.actualizeScore();
+                        s.refreshScore();
                         break;
                     case 120: //Fin du jeu
                         try {
@@ -106,7 +105,7 @@ public class FenetreDeJeu{
             }
         });
         tBoucleur.start();
-        showMap(movementManager.getCarte());
+        showMap(modeleManager.getCarte());
         labelTemps.textProperty().bind(g.tempsProperty());
         labelScore.textProperty().bind(s.CounterProperty());
     }

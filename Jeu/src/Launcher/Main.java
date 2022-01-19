@@ -2,13 +2,8 @@ package Launcher;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import modele.Joueur.ListeJoueurs;
-import modele.Persistance.LoaderJoueurs;
-import modele.Persistance.SaverJoueurs;
-import modele.Utils.GestionnaireJoueurs;
+import modele.Joueur.GestionnaireJoueurs;
 import vues.ManagerVues;
 
 public class Main extends Application {
@@ -19,7 +14,7 @@ public class Main extends Application {
 
         gj = new GestionnaireJoueurs();
         mg = new ManagerVues(primaryStage);
-
+        primaryStage.setResizable(false);
         mg.showVue("/FXML/Start.fxml");
 
         primaryStage.setOnCloseRequest(e -> {

@@ -33,7 +33,7 @@ public class End {
     public void initialize(){
         joueurs = Main.gj.getJoueurs();
         Joueur joueurActuel= Main.gj.getJoueurActuel();
-        joueurActuel.actualizeInformations();
+        joueurActuel.refreshInformations();
         listeJoueurs.itemsProperty().bind(joueurs.joueursProperty());
 
         listeJoueurs.setCellFactory(__ ->

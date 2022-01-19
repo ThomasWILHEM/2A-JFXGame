@@ -21,8 +21,8 @@
           <RowConstraints minHeight="10.0" percentHeight="35.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button styleClass="restartButton" fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame" prefHeight="56.0" prefWidth="180.0" text="Rejouer"  GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button styleClass="quitButton" fx:id="quitButton" mnemonicParsing="false" onAction="#quitAction" prefHeight="48.0" prefWidth="166.0" text="Quitter" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button styleClass="restartButton" fx:id="restartButton" mnemonicParsing="false" onAction="#restartGame"  text="Rejouer pour faire mieux"  GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button styleClass="quitButton" fx:id="quitButton" mnemonicParsing="false" onAction="#quitAction"  text="Quitter et sauvegarder" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

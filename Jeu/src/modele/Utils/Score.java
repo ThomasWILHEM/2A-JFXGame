@@ -1,11 +1,7 @@
 package modele.Utils;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
-import java.io.Serializable;
 
 public class Score{
 
@@ -43,7 +39,7 @@ public class Score{
     /**
      * Permet d'actualiser le String du score pour la vue
      */
-    public void actualizeScore(){
+    public void refreshScore(){
         setCounterP("Score : " + score);
     }
 

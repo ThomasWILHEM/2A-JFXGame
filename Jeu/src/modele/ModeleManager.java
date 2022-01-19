@@ -1,6 +1,5 @@
 package modele;
 
-import Launcher.Main;
 import javafx.scene.input.KeyEvent;
 import modele.Acteurs.Entity;
 import modele.Acteurs.Objet;
@@ -10,12 +9,12 @@ import modele.Utils.Carte;
 
 import java.util.List;
 
-public class MovementManager {
+public class ModeleManager {
     private Carte c;
     private DeplaceurJoueur dep;
     private int numNiveau;
 
-    public MovementManager() {
+    public ModeleManager() {
         c = new Carte();
         c.lireCarte("rsrc/Map/map1.txt");
         dep = new DeplaceurJoueur();

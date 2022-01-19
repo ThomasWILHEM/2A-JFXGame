@@ -11,11 +11,11 @@ import java.util.List;
 
 public class ListeJoueurs {
 
+    List<Joueur> saveList = new ArrayList<>();
+
     public List<Joueur> getSaveList() {
         return saveList;
     }
-
-    List<Joueur> saveList = new ArrayList<>();
 
     /**
      * Liste de tous les joueurs

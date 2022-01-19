@@ -12,7 +12,7 @@ import java.io.ObjectInputStream;
 public class LoaderJoueurs {
     public static ListeJoueurs LoadJoueurs() throws IOException, ClassNotFoundException {
         ListeJoueurs li = new ListeJoueurs();
-        FileInputStream fi = new FileInputStream("C:\\Users\\thoma\\Desktop\\2A-JFXGame\\Jeu\\rsrc\\fic");
+        FileInputStream fi = new FileInputStream("rsrc/scores");
         ObjectInputStream flot = new ObjectInputStream(fi);
         boolean cont = true;
         while(cont) {

@@ -21,11 +21,11 @@ public class Joueur implements Serializable {
     /**
      * Nom du joueur
      */
-    String nom;
+    private String nom;
     /**
      * Score du joueur
      */
-    Score s;
+    private Score s;
 
     public Score getScore() {
         return s;
@@ -44,7 +44,7 @@ public class Joueur implements Serializable {
     /**
      * Permet d'actualiser le String pour la vue
      */
-    public void actualizeInformations(){
+    public void refreshInformations(){
         setinfosJoueur(nom + " --> " + s.getCounterP());
     }
 }

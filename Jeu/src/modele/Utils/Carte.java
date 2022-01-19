@@ -18,6 +18,14 @@ public class Carte {
 
     public ObservableList<Entity> getElements() {return elements;}
 
+    public int getLongueurP() {
+        return longueurP;
+    }
+
+    public int getLargeurP() {
+        return largeurP;
+    }
+
     public Carte() {
         elements = FXCollections.observableArrayList();
     }
@@ -27,7 +35,6 @@ public class Carte {
      * @param o Objet à détruire
      */
     public void destroy(Objet o){
-        //o.setSprite(null);
         Platform.runLater(()->{elements.remove(o);});
     }
 
@@ -79,11 +86,5 @@ public class Carte {
         }
     }
 
-    public int getLongueurP() {
-        return longueurP;
-    }
 
-    public int getLargeurP() {
-        return largeurP;
-    }
 }

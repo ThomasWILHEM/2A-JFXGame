@@ -2,8 +2,6 @@ package modele.Utils;
 
 import Launcher.Main;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import modele.Boucleurs.BoucleurJeu;
@@ -42,7 +40,7 @@ public class Timer implements Observateur {
     /**
      * Permet d'actualiser le String du temps pour la vue
      */
-    public void actualizeTimer(){
+    public void refreshTimer(){
         setTempsP("Temps restant : " + temps);
     }
 
@@ -54,7 +52,7 @@ public class Timer implements Observateur {
             Platform.runLater(()->{
                 if(temps!=0) {
                     setTemps(temps - 1);
-                    actualizeTimer();
+                    refreshTimer();
                 }
                 else {
                     try {
