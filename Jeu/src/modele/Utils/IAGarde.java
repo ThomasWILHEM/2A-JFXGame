@@ -26,6 +26,16 @@ public class IAGarde implements Observateur {
      */
     private DeplaceurGarde dG;
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    private boolean isActive=true;
+
     BoucleurJeu b;
     int cptAct =0;
 
@@ -43,23 +53,25 @@ public class IAGarde implements Observateur {
 
     @Override
     public void update() {
-        if (cptAct == 30){
-            if(dG.deplacer(c,g,g.getP()) == 1){
-                try {
-                    Platform.runLater(()->{
-                        try {
-                            Main.mg.showVue("/FXML/GameOver.fxml");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
-                    b.setGameOver(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if(isActive) {
+            if (cptAct == 30) {
+                if (dG.deplacer(c, g, g.getP()) == 1) {
+                    try {
+                        Platform.runLater(() -> {
+                            try {
+                                Main.mg.showVue("/FXML/GameOver.fxml");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                        b.setGameOver(true);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+                cptAct = 0;
             }
-            cptAct =0;
+            cptAct++;
         }
-        cptAct++;
     }
 }

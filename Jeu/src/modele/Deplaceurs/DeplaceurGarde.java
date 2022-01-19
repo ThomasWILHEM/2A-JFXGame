@@ -28,7 +28,6 @@ public class DeplaceurGarde extends Deplaceur {
      */
     @Override
     public int deplacer(Carte c, Entity e, Position pVoulue) {
-        System.out.println(((Personnage) e).getDirection());
         int distance = ((Garde)e).getDistanceVue();
         List<Entity> elements = c.getElements();
         Position p = e.getP();
@@ -41,7 +40,6 @@ public class DeplaceurGarde extends Deplaceur {
                     int finalI = i;
                     Platform.runLater(() -> {
                         elements.add(new VueGarde(new Image("/Images/vueGarde.png"), new Position(p.getPosX(), p.getPosY() - finalI), (Garde) e));
-                        System.out.println("Update UP  vue Garde numero" + (((Garde) e)).getId());
                     });
                     if (posJ.equals(new Position(p.getPosX(), p.getPosY() - i))) {
                         return 1;

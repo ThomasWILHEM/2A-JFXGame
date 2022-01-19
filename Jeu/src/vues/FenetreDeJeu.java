@@ -92,8 +92,10 @@ public class FenetreDeJeu{
                         break;
                     case 3:
                         map.getChildren().clear();
+                        for (IAGarde ia:IAGenerees)
+                            ia.setActive(false);
                         IAGenerees.clear();
-                        modeleManager.getCarte().loadNewLevel(modeleManager.getNumNiveau()+1);
+                        modeleManager.getCarte().loadNewLevel(modeleManager.getNumNiveau());
                         addIA(IAGenerees);
                         break;
                     case 4:

@@ -63,6 +63,7 @@ public class End {
         }
         Stage s = (Stage) quitButton.getScene().getWindow();
         s.close();
+        System.exit(0);
     }
 
     public void restartGame(ActionEvent actionEvent) throws Exception{

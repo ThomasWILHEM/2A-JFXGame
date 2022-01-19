@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import modele.Acteurs.*;
 
+import java.util.Random;
+
 public class Carte {
 
     private int longueurP;
@@ -71,6 +73,8 @@ public class Carte {
      */
     public void lireCarte(String chemin){
         int i,j;
+        char dir;
+        Random r = new Random();
         LecteurDeCarte l = new LecteurDeCarte();
         try {
             char[][] cLue = l.lireCarte(chemin);
@@ -80,7 +84,23 @@ public class Carte {
                         case '1' : elements.add(new Mur(new Image("/Images/mur.png"),new Position(j,i)));break;
                         case '2' : elements.add(new PersoJoueur(new Image("/Images/voleurUnique.png"),new Position(j,i),'U'));break;
                         case '3' : elements.add(new Sortie(new Image("/Images/floor_01_1.png"),new Position(j,i)));break;
-                        case '4' : elements.add(new Garde(new Image("/Images/garde.png"),2,new Position(j,i),'U'));break;
+                        case '4' :
+                            switch (r.nextInt(3)){
+                                case 0:
+                                    dir='U';
+                                    break;
+                                case 1:
+                                    dir='R';
+                                    break;
+                                case 2:
+                                    dir='D';
+                                    break;
+                                default:
+                                    dir='L';
+                                    break;
+                            }
+                            elements.add(new Garde(new Image("/Images/garde.png"),2,new Position(j,i),dir));
+                            break;
                         case '5' : elements.add(new Objet(new Image("/Images/gems.png"),new Position(j,i)));break;
                     }
                 }
