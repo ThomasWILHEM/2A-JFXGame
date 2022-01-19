@@ -34,13 +34,14 @@ public class DeplaceurGarde extends Deplaceur {
         Position p = e.getP();
         c.clearVueGarde((Garde) e);
         Position posJ =j.getP();
-        switch(((Personnage) e).getDirection()) {
+        switch(((Garde) e).getDirection()) {
             case 'U' :
-                ((Personnage) e).setDirection('R');
+                ((Garde) e).changeDirection('R');
                 for(int i=1;i<=distance;i++) {
                     int finalI = i;
                     Platform.runLater(() -> {
                         elements.add(new VueGarde(new Image("/Images/vueGarde.png"), new Position(p.getPosX(), p.getPosY() - finalI), (Garde) e));
+                        System.out.println("Update UP  vue Garde numero" + (((Garde) e)).getId());
                     });
                     if (posJ.equals(new Position(p.getPosX(), p.getPosY() - i))) {
                         return 1;
@@ -48,7 +49,7 @@ public class DeplaceurGarde extends Deplaceur {
                 }
                 break;
             case 'R' :
-                ((Personnage) e).setDirection('D');
+                ((Garde) e).changeDirection('D');
                 for(int i=1;i<=distance;i++) {
                     int finalI = i;
                     Platform.runLater(() -> {
@@ -60,7 +61,7 @@ public class DeplaceurGarde extends Deplaceur {
                 }
                 break;
             case 'D' :
-                ((Personnage) e).setDirection('L');
+                ((Garde) e).changeDirection('L');
                 for(int i=1;i<=distance;i++) {
                     int finalI = i;
                     Platform.runLater(() -> {
@@ -72,7 +73,7 @@ public class DeplaceurGarde extends Deplaceur {
                 }
                 break;
             case 'L' :
-                ((Personnage) e).setDirection('U');
+                ((Garde) e).changeDirection('U');
                 for(int i=1;i<=distance;i++) {
                     int finalI = i;
                     Platform.runLater(() -> {

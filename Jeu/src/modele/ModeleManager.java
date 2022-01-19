@@ -2,6 +2,7 @@ package modele;
 
 import javafx.scene.input.KeyEvent;
 import modele.Acteurs.Entity;
+import modele.Acteurs.Garde;
 import modele.Acteurs.Objet;
 import modele.Acteurs.PersoJoueur;
 import modele.Deplaceurs.DeplaceurJoueur;
@@ -13,6 +14,10 @@ public class ModeleManager {
     private Carte c;
     private DeplaceurJoueur dep;
     private int numNiveau;
+
+    public int getNumNiveau() {
+        return numNiveau;
+    }
 
     public ModeleManager() {
         c = new Carte();
@@ -52,10 +57,6 @@ public class ModeleManager {
                     return 120;
                 }
                 numNiveau++;
-                if(numNiveau<4){
-                    c.clearCarte();
-                    c.lireCarte("rsrc/Map/map"+numNiveau+".txt");
-                }
                 return 3;
 
             default: return code;

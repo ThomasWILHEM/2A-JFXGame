@@ -42,7 +42,16 @@ public class Carte {
      * Permet de vider la collection d'entitée
      */
     public void clearCarte(){
-        elements.clear();
+            elements.clear();
+    }
+
+    /**
+     * Charge un nouveau Niveau en fonction du nombre envoyé en paramètre
+     * @param numLevel
+     */
+    public void loadNewLevel(int numLevel){
+        clearCarte();
+        lireCarte("rsrc/Map/map"+numLevel+".txt");
     }
 
     /**

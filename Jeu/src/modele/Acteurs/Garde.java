@@ -40,4 +40,16 @@ public class Garde extends Personnage{
     public boolean equals(Object o){
         return ((Garde)o).getId()==this.id;
     }
+
+    @Override
+    public void changeDirection(char direction) {
+        switch(direction) {
+            case 'U' : this.getSprite().setRotate(0); break;
+            case 'D' : this.getSprite().setRotate(90); break;
+            case 'L' : this.getSprite().setRotate(180); break;
+            case 'R' : this.getSprite().setRotate(270); break;
+        }
+        setDirection(direction);
+    }
+
 }

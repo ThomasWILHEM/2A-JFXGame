@@ -28,6 +28,8 @@ public abstract class Entity {
         this.p=p;
     }
 
+
+
     /**
      * Permet de récuperer un sprite
      * @return Une image view

@@ -19,6 +19,7 @@ import modele.Utils.IAGarde;
 import modele.Utils.Score;
 import modele.Utils.Timer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,6 +41,7 @@ public class FenetreDeJeu{
     public Timer g;
     public ModeleManager modeleManager;
 
+    private List<IAGarde> IAGenerees;
 
     /**
      * Permet d'actuliser la vue en ré-affichant la carte
@@ -54,8 +56,14 @@ public class FenetreDeJeu{
         }
     }
 
+    private void addIA(List<IAGarde> liste){
+        for(Entity ent : modeleManager.getCarte().getElements()){
+            if(ent.getClass() == Garde.class)
+                liste.add(new IAGarde(modeleManager.getCarte(),b,(Garde)ent));
+        }
+    }
     public void initialize(){
-
+        IAGenerees = new ArrayList<>();
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
         g = new Timer(20,b);
@@ -68,10 +76,9 @@ public class FenetreDeJeu{
             // Vérif que le joueur n'est pas touché par une zone
             showMap(modeleManager.getCarte());
         });
-        for(Entity ent : entities){
-            if(ent.getClass() == Garde.class)
-                new IAGarde(modeleManager.getCarte(),b,(Garde)ent);
-        }
+
+        addIA(IAGenerees);
+
         map.setFocusTraversable(true);
         Main.mg.setWindowWidth(modeleManager.getCarte().getLongueurP()*45);
         Main.mg.setWindowHeight((modeleManager.getCarte().getLargeurP()*45 + 200));
@@ -79,6 +86,16 @@ public class FenetreDeJeu{
             @Override
             public void handle(KeyEvent keyEvent) {
                 switch(modeleManager.gestionTouches(keyEvent)) {
+                    case 2:
+                        s.addScore(1);
+                        s.refreshScore();
+                        break;
+                    case 3:
+                        map.getChildren().clear();
+                        IAGenerees.clear();
+                        modeleManager.getCarte().loadNewLevel(modeleManager.getNumNiveau()+1);
+                        addIA(IAGenerees);
+                        break;
                     case 4:
                         try {
                             b.setGameOver(true);
@@ -87,10 +104,6 @@ public class FenetreDeJeu{
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        break;
-                    case 2:
-                        s.addScore(1);
-                        s.refreshScore();
                         break;
                     case 120: //Fin du jeu
                         try {

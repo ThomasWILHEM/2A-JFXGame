@@ -10,6 +10,10 @@ public class Personnage extends Entity{
      */
     private char direction;
 
+    public void setDirection(char dir){
+        this.direction = dir;
+    }
+
     public Personnage(Image sprite, Position p, char dir) {
         super(sprite,p,false);
         if (dir == 'U' || dir == 'D' || dir == 'L' || dir == 'R')
@@ -28,7 +32,7 @@ public class Personnage extends Entity{
      * Permet de set la direction du personnage
      * @param direction Char permettant de donner la direction voulue
      */
-    public void setDirection(char direction) {
+    public void changeDirection(char direction) {
         switch(direction) {
             case 'U' : this.getSprite().setRotate(270); break;
             case 'D' : this.getSprite().setRotate(90); break;
