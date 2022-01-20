@@ -16,8 +16,6 @@ public class Joueur implements Serializable {
     public StringProperty infosJoueurProperty() {return infosJoueur;}
     public void setinfosJoueur(String infosJoueur) {this.infosJoueur.set(infosJoueur);}
 
-
-
     /**
      * Nom du joueur
      */
@@ -27,6 +25,12 @@ public class Joueur implements Serializable {
      */
     private Score s;
 
+    public Joueur(String nom, Score s) {
+        this.nom=nom;
+        this.s = s;
+        setinfosJoueur(nom + " --> " + s.getCounterP());
+    }
+
     public Score getScore() {
         return s;
     }
@@ -35,11 +39,6 @@ public class Joueur implements Serializable {
         return nom;
     }
 
-    public Joueur(String nom, Score s) {
-        this.nom=nom;
-        this.s = s;
-        setinfosJoueur(nom + " --> " + s.getCounterP());
-    }
 
     /**
      * Permet d'actualiser le String pour la vue

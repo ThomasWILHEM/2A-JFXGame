@@ -10,6 +10,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class LoaderJoueurs {
+
+    /**
+     * Permet de charger les anciens joueurs avec leurs scores
+     * @return Liste de joueurs
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static ListeJoueurs LoadJoueurs() throws IOException, ClassNotFoundException {
         ListeJoueurs li = new ListeJoueurs();
         FileInputStream fi = new FileInputStream("rsrc/scores");

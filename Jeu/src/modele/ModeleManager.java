@@ -15,15 +15,16 @@ public class ModeleManager {
     private DeplaceurJoueur dep;
     private int numNiveau;
 
-    public int getNumNiveau() {
-        return numNiveau;
-    }
 
     public ModeleManager() {
         c = new Carte();
         c.lireCarte("rsrc/Map/map1.txt");
         dep = new DeplaceurJoueur();
         numNiveau=1;
+    }
+
+    public int getNumNiveau() {
+        return numNiveau;
     }
 
     /**

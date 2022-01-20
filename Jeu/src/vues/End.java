@@ -55,6 +55,10 @@ public class End {
 
     }
 
+    /**
+     * Méthode appelée lorsque le joueur clique sur le boutton pour quitter
+     * @param actionEvent
+     */
     public void quitAction(ActionEvent actionEvent) {
         try {
             SaverJoueurs.SaveJoueurs(Main.gj.getJoueurs());
@@ -66,6 +70,11 @@ public class End {
         System.exit(0);
     }
 
+    /**
+     * Méthode appelée lorsque le joueur clique sur le bouton pour relancer une partie
+     * @param actionEvent
+     * @throws Exception
+     */
     public void restartGame(ActionEvent actionEvent) throws Exception{
         Main.gj.getJoueurActuel().getScore().setScore(0);
         Main.mg.showVue("/FXML/FenetreDeJeu.fxml");

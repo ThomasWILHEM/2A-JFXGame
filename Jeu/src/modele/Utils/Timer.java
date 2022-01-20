@@ -13,10 +13,6 @@ public class Timer implements Observateur {
 
     private int cptAct=0;
 
-    public void setTemps(int temps) {
-        this.temps = temps;
-    }
-
     /**
      * Temps (en int)
      */
@@ -35,6 +31,10 @@ public class Timer implements Observateur {
         boucleurJeu.Subscribe(this);
         temps=t;
         setTempsP("Temps restant : " + temps);
+    }
+
+    public void setTemps(int temps) {
+        this.temps = temps;
     }
 
     /**

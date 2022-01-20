@@ -26,6 +26,10 @@ public class ListeJoueurs {
     public void setJoueursObs(ObservableList<Joueur> value) {joueurs.set(value);}
     public ListProperty<Joueur> joueursProperty() {return joueurs;}
 
+    /**
+     * Permet d'ajouter un joueur aux listes de joueurs
+     * @param joueur Joueur à ajouter
+     */
     public void addJoueur(Joueur joueur) {
         saveList.add(joueur);
         joueursObs.add(joueur);

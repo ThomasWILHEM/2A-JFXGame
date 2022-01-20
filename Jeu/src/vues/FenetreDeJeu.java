@@ -71,14 +71,14 @@ public class FenetreDeJeu{
         IAGenerees = new ArrayList<>();
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
-        g = new Timer(25,b);
+        g = new Timer(50,b);
 
         Score s = Main.gj.getJoueurActuel().getScore();
         s.refreshScore();
         modeleManager = new ModeleManager();
         ObservableList<Entity> entities = modeleManager.getCarte().getElements();
         entities.addListener((InvalidationListener) observable -> {
-            // Vérif que le joueur n'est pas touché par une zone
+            // Vérifie que le joueur n'est pas touché par une zone
             showMap(modeleManager.getCarte());
         });
 

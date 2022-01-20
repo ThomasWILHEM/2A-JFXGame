@@ -10,13 +10,24 @@ import java.util.Random;
 
 public class Carte {
 
+    /**
+     * Longueur de la carte
+     */
     private int longueurP;
+
+    /**
+     * Largeur de la carte
+     */
     private int largeurP;
 
     /**
      * Liste des entitées
      */
     private ObservableList<Entity> elements;
+
+    public Carte() {
+        elements = FXCollections.observableArrayList();
+    }
 
     public ObservableList<Entity> getElements() {return elements;}
 
@@ -26,10 +37,6 @@ public class Carte {
 
     public int getLargeurP() {
         return largeurP;
-    }
-
-    public Carte() {
-        elements = FXCollections.observableArrayList();
     }
 
     /**

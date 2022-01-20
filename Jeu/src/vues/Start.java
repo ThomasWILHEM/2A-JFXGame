@@ -19,6 +19,11 @@ public class Start {
     @FXML
     public Button quitButton;
 
+    /**
+     * Méthode appelée quand le joueur lance une partie (clique sur le bouton start)
+     * @param actionEvent
+     * @throws Exception
+     */
     public void onPlay(ActionEvent actionEvent) throws Exception {
         String nomJoueur = name.getText();
         if(nomJoueur == "")
@@ -27,6 +32,10 @@ public class Start {
         Main.mg.showVue("/FXML/FenetreDeJeu.fxml");
     }
 
+    /**
+     * Méthode appelée lorsque le joueur clique sur le boutton pour quitter
+     * @param actionEvent
+     */
     public void onQuit(ActionEvent actionEvent) {
         Stage s = (Stage) playButton.getScene().getWindow();
         s.close();

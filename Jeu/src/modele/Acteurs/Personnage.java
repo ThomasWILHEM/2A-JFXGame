@@ -10,10 +10,6 @@ public class Personnage extends Entity{
      */
     private char direction;
 
-    public void setDirection(char dir){
-        this.direction = dir;
-    }
-
     public Personnage(Image sprite, Position p, char dir) {
         super(sprite,p,false);
         if (dir == 'U' || dir == 'D' || dir == 'L' || dir == 'R')
@@ -26,6 +22,10 @@ public class Personnage extends Entity{
 
     public char getDirection() {
         return direction;
+    }
+
+    public void setDirection(char dir){
+        this.direction = dir;
     }
 
     /**

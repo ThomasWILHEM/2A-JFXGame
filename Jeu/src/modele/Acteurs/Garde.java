@@ -41,6 +41,11 @@ public class Garde extends Personnage{
         return ((Garde)o).getId()==this.id;
     }
 
+
+    /**
+     * Permet au garde de changer de direction
+     * @param direction Char permettant de donner la direction voulue
+     */
     @Override
     public void changeDirection(char direction) {
         switch(direction) {

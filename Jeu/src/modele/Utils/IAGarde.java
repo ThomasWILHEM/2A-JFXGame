@@ -26,14 +26,6 @@ public class IAGarde implements Observateur {
      */
     private DeplaceurGarde dG;
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
     private boolean isActive=true;
 
     BoucleurJeu b;
@@ -49,6 +41,10 @@ public class IAGarde implements Observateur {
                 dG = new DeplaceurGarde((PersoJoueur) ent);
         }
         b.Subscribe(this);
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     @Override
