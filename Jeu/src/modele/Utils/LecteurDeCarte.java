@@ -13,7 +13,7 @@ public class LecteurDeCarte {
      * @throws FileNotFoundException
      */
     public char [][] lireCarte(String chemin) throws FileNotFoundException {
-        char[][] carte = new char[11][34];
+        char[][] carte = new char[50][50]; //Taille maximale des cartes
         String line;
         int i=0,j=0;
         try(BufferedReader br = new BufferedReader(new FileReader(chemin))){

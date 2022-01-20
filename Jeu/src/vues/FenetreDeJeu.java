@@ -56,6 +56,11 @@ public class FenetreDeJeu{
         }
     }
 
+    private void setScreenSize(){
+        Main.mg.setWindowWidth(modeleManager.getCarte().getLongueurP()*45);
+        Main.mg.setWindowHeight((modeleManager.getCarte().getLargeurP()*45 + 200));
+    }
+
     private void addIA(List<IAGarde> liste){
         for(Entity ent : modeleManager.getCarte().getElements()){
             if(ent.getClass() == Garde.class)
@@ -66,7 +71,7 @@ public class FenetreDeJeu{
         IAGenerees = new ArrayList<>();
         b = new BoucleurJeu();
         Thread tBoucleur = new Thread(b);
-        g = new Timer(20,b);
+        g = new Timer(25,b);
 
         Score s = Main.gj.getJoueurActuel().getScore();
         s.refreshScore();
@@ -80,8 +85,7 @@ public class FenetreDeJeu{
         addIA(IAGenerees);
 
         map.setFocusTraversable(true);
-        Main.mg.setWindowWidth(modeleManager.getCarte().getLongueurP()*45);
-        Main.mg.setWindowHeight((modeleManager.getCarte().getLargeurP()*45 + 200));
+        setScreenSize();
         map.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -96,6 +100,7 @@ public class FenetreDeJeu{
                             ia.setActive(false);
                         IAGenerees.clear();
                         modeleManager.getCarte().loadNewLevel(modeleManager.getNumNiveau());
+                        setScreenSize();
                         addIA(IAGenerees);
                         break;
                     case 4:
