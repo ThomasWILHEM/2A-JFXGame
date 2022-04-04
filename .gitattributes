@@ -1,3 +1,1 @@
-* linguist-vendored
-*.java linguist-vendored=false
-*.CSS linguist-vendored=false
+*.HTML linguist-detectable=false
